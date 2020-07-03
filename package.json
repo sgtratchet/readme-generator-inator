@@ -1,0 +1,26 @@
+{
+  "name": "readme-generator-inator",
+  "version": "1.0.0",
+  "description": "An application to generate a readme for new projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sgtratchet/readme-generator-inator.git"
+  },
+  "keywords": [
+    "readme",
+    "generator"
+  ],
+  "author": "Devin Ellsworth",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sgtratchet/readme-generator-inator/issues"
+  },
+  "homepage": "https://github.com/sgtratchet/readme-generator-inator#readme",
+  "dependencies": {
+    "inquirer": "^7.3.0"
+  }
+}
