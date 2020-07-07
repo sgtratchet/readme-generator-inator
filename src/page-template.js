@@ -1,17 +1,17 @@
 const generatePage = (name, github) => {
     return `
-    #${project-name}
+    # ${project-name}
 
-    ##${Description}
+    ## ${Description}
 
-    ##Table Of Contents
+    ## Table Of Contents
 
-    *[Installation](#installation)
-    *[Usage](#usage)
-    *[License](*license)
-    *[Contributing](*contributing)
-    *[Tests](*tests)
-    *[Questions](*questions)
+    * [Installation](#installation)
+    * [Usage](#usage)
+    * [License](*license)
+    * [Contributing](*contributing)
+    * [Tests](*tests)
+    * [Questions](*questions)
 
     ## Installation
     ${installation}
