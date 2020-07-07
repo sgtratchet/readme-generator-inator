@@ -18,9 +18,9 @@ const generatePage = (name, github) => {
     ## Usage
     ${usage}
     ## License
-    This application is covered under the ${license} license
+    This application is covered under the ${license.join(', ')} license
     ## Contributing
-    ${contributing}
+    ${name},${contributing}
     ## Tests
     ${tests}
     ## Questions

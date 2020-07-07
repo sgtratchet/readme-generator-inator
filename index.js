@@ -1,6 +1,13 @@
 const inquirer = require('inquirer');
+const pageTemplate = requier('./src/page-template.js');
+const fs = require('fs');
 
 const promptUser = ()=>{
+  // If there's no 'projects' array property, create one
+  if (!readmeData.projects) {
+    readmeData.projects = [];
+  }
+
   return inquirer.prompt([
     {
       type: 'input',
@@ -14,69 +21,73 @@ const promptUser = ()=>{
     },
     {
       type: 'input',
-      name: 'about',
-      message: 'Provide some information about yourself:'
-    }
-  ]);
-};
-
-
-const promptProject = portfolioData => {
-  // If there's no 'projects' array property, create one
-  if (!portfolioData.projects) {
-    portfolioData.projects = [];
-  }
-    console.log(`
-  =================
-  Add a New Project
-  =================
-  `);
-    return inquirer.prompt([
-      {
-        type: 'input',
-        name: 'project-name',
-        message: 'What is the name of your project?'
-      },
-      {
-        type: 'input',
-        name: 'description',
-        message: 'Provide a description of the project (Required)'
-      },
-      {
-        type: 'checkbox',
-        name: 'languages',
-        message: 'What did you write this project with? (Check all that apply)',
-        choices: ['JavaScript', 'HTML', 'CSS', 'ES6', 'jQuery', 'Bootstrap', 'Node']
-      },
-      {
-        type: 'input',
-        name: 'link',
-        message: 'Enter the GitHub link to your project. (Required)'
-      },
-      {
-        type: 'confirm',
-        name: 'feature',
-        message: 'Would you like to feature this project?',
-        default: false
-      },
-      {
-        type: 'confirm',
-        name: 'confirmAddProject',
-        message: 'Would you like to enter another project?',
-        default: false
-      }
+      name: 'project-name',
+      message: 'What is the name of your project?'
+    },
+    {
+      type: 'input',
+      name: 'description',
+      message: 'Provide a description of the project (Required)'
+    },
+    {
+      type: 'input',
+      name: 'installation',
+      message: 'how would someone install this project?'
+    },
+    {
+      type: 'input',
+      name: 'usage',
+      message: 'Provide some information about how to use the project'
+    },
+    {
+      type: 'checkbox',
+      name: 'license',
+      message: 'What license is this covered under? (Check all that apply)',
+      choices: ['Open Source', 'MIT']
+    },
+    {
+      type: 'input',
+      name: 'contributing',
+      message: 'Who has contributed to this project?'
+    },
     ])
+    
     .then(projectData => {
-      portfolioData.projects.push(projectData);
-      if (projectData.confirmAddProject) {
-        return promptProject(portfolioData);
-      } else {
-        return portfolioData;
-      }
+      readmeData.projects.push(projectData);
+        return readmeData;
     });
   };
+
   promptUser()
-  .then(promptProject)
-  .then(portfolioData => {
-    console.log(portfolioData);
+  .then(readmeData => {
+    return generatePage(readmeData);
+  })
+  .then(pageMD => {
+    return writeFile(pageMD);
+  })
+  .then(writeFileResponse => {
+    console.log(writeFileResponse);
+    return copyFile();
+  })
+  .catch(err => {
+    console.log(err);
   });
+
+  const writeFile = fileContent => {
+    return new Promise((resolve, reject) => {
+      fs.writeFile('./dist/README.md', fileContent, err => {
+        // if there's an error, reject the Promise and send the error to the Promise's `.catch()` method
+        if (err) {
+          reject(err);
+          // return out of the function here to make sure the Promise doesn't accidentally execute the resolve() function as well
+          return;
+        }
+  
+        // if everything went well, resolve the Promise and send the successful data to the `.then()` method
+        resolve({
+          ok: true,
+          message: 'File created!'
+        });
+      });
+    });
+  };
