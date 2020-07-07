@@ -26,7 +26,7 @@ const promptUser = readmeData => {
     {
       type: 'input',
       name: 'description',
-      message: 'Provide a description of the project (Required)'
+      message: 'Provide a description of the project'
     },
     {
       type: 'input',
@@ -39,10 +39,11 @@ const promptUser = readmeData => {
       message: 'Provide some information about how to use the project'
     },
     {
-      type: 'checkbox',
+      type: 'list',
       name: 'license',
       message: 'What license is this covered under? (Check all that apply)',
-      choices: ['Open Source', 'MIT']
+      choices: ['Open Source', 'MIT'],
+      default: 0
     },
     {
       type: 'input',
@@ -78,10 +79,8 @@ const promptUser = readmeData => {
         // if there's an error, reject the Promise and send the error to the Promise's `.catch()` method
         if (err) {
           reject(err);
-          // return out of the function here to make sure the Promise doesn't accidentally execute the resolve() function as well
           return;
         }
-  
         // if everything went well, resolve the Promise and send the successful data to the `.then()` method
         resolve({
           ok: true,
