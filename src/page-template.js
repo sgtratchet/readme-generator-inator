@@ -1,6 +1,6 @@
-const generatePage = (name, github) => {
+const generatePage = (projectsArr) => {
     return `
-    # ${project-name}
+    # ${projectName}
 
     ## ${Description}
 
@@ -30,4 +30,4 @@ const generatePage = (name, github) => {
     `;
   };
 
-  module.exports = generatePage;
+module.exports = generatePage;

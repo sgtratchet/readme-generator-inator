@@ -1,13 +1,12 @@
 const inquirer = require('inquirer');
-const pageTemplate = requier('./src/page-template.js');
+const generatePage = require('./src/page-template.js');
 const fs = require('fs');
 
-const promptUser = ()=>{
+const promptUser = readmeData => {
   // If there's no 'projects' array property, create one
   if (!readmeData.projects) {
     readmeData.projects = [];
-  }
-
+  };
   return inquirer.prompt([
     {
       type: 'input',
@@ -21,7 +20,7 @@ const promptUser = ()=>{
     },
     {
       type: 'input',
-      name: 'project-name',
+      name: 'projectName',
       message: 'What is the name of your project?'
     },
     {
@@ -51,14 +50,14 @@ const promptUser = ()=>{
       message: 'Who has contributed to this project?'
     },
     ])
-    
+
     .then(projectData => {
       readmeData.projects.push(projectData);
         return readmeData;
     });
   };
 
-  promptUser()
+  promptUser({})
   .then(readmeData => {
     return generatePage(readmeData);
   })
