@@ -31,4 +31,4 @@ ${tests}
     
 ## Questions
 For any questions about this application please contact me via email at: sgtratchet@gmail.com 
-and visit my [github](https://github.com/sgtratchet)
+and visit my [github](https://github.com/sgtratchet/readme-generator-inator)
