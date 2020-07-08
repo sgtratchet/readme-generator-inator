@@ -6,10 +6,10 @@
 
  * [Installation](#installation)
  * [Usage](#usage)
- * [License](*license)
- * [Contributing](*contributing)
- * [Tests](*tests)
- * [Questions](*questions)
+ * [License](#license)
+ * [Contributing](#contributing)
+ * [Tests](#tests)
+ * [Questions](#questions)
 
 ## Installation
 you will need to clone this repository, it is also a node.js project so install node onto your computer so that you can run the program. after cloning the repository
