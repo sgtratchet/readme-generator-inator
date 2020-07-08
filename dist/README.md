@@ -1,7 +1,7 @@
 
-    # asg
+    # readme-generator-inator
 
-    ## asdf
+    ## REadme generator to generate a proffesional readme
 
     ## Table Of Contents
 
@@ -13,17 +13,17 @@
     * [Questions](#questions)
 
     ## Installation
-    aSDVas
+    install node, install inquirer
     ## Usage
-    ev
+    follow prompts after using node index command
     ## License
     This application is covered under the Open Source license
     ## Contributing
-    sdf,asve
+    Devin,Devin
     ## Tests
-    undefined
+    with a proper TDD
     ## Questions
     For any questions about this application please contact me via email at: undefined 
-    and visit my [github](https://github.com/sdf)
+    and visit my [github](https://github.com/sgtratchet)
 
     
