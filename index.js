@@ -50,6 +50,11 @@ const promptUser = readmeData => {
       name: 'contributing',
       message: 'Who has contributed to this project?'
     },
+    {
+      type: 'input',
+      name: 'tests',
+      message: 'how should a user perform tests?'
+    },
     ])
 
     .then(projectData => {
@@ -67,7 +72,6 @@ const promptUser = readmeData => {
   })
   .then(writeFileResponse => {
     console.log(writeFileResponse);
-    return copyFile();
   })
   .catch(err => {
     console.log(err);

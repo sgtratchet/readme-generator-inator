@@ -1,33 +1,35 @@
-const generatePage = (projectsArr) => {
+module.exports = templateData => {
+  console.log(templateData);
+ 
     return `
-    # ${projectName}
+    # ${templateData.projects[0].projectName}
 
-    ## ${Description}
+    ## ${templateData.projects[0].description}
 
     ## Table Of Contents
 
     * [Installation](#installation)
     * [Usage](#usage)
-    * [License](*license)
-    * [Contributing](*contributing)
-    * [Tests](*tests)
-    * [Questions](*questions)
+    * [License](#license)
+    * [Contributing](#contributing)
+    * [Tests](#tests)
+    * [Questions](#questions)
 
     ## Installation
-    ${installation}
+    ${templateData.projects[0].installation}
     ## Usage
-    ${usage}
+    ${templateData.projects[0].usage}
     ## License
-    This application is covered under the ${license.join(', ')} license
+    This application is covered under the ${templateData.projects[0].license} license
     ## Contributing
-    ${name},${contributing}
+    ${templateData.projects[0].name},${templateData.projects[0].contributing}
     ## Tests
-    ${tests}
+    ${templateData.projects[0].tests}
     ## Questions
-    For any questions about this application please contact me via email at: ${email} 
-    and visit my [github](https://github.com/${github})
+    For any questions about this application please contact me via email at: ${templateData.projects[0].email} 
+    and visit my [github](https://github.com/${templateData.projects[0].github})
 
     `;
   };
 
-module.exports = generatePage;
+// module.exports = generatePage;
